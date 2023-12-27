@@ -4,7 +4,7 @@ class NavBar extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary navbarstyle">
+        <nav className="navbar navbar-expand-lg navbarstyle">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               Green Monkey

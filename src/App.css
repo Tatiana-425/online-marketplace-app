@@ -39,8 +39,12 @@
 
 .highlight {
   background-color: #3e8989;
-};
+}
 
 .navbarstyle {
-background-color: #3e8989 !important;
+background-color: #4f75c3b0 !important;
+}
+
+.badgestyle {
+  background-color:black !important;
 }
