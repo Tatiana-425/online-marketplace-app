@@ -41,7 +41,7 @@ export default class MainContent extends Component {
                 <tr key={cust.id}>
                   <td>{index + 1}</td>
                   <td>{cust.name}</td>
-                  <td>{(cust.phone == null)? "Phone number is not indicated" : cust.phone}</td>
+                  <td>{this.getPhoneNumberToRender(cust.phone)}</td>
                   <td>{cust.address.city}</td>
                 </tr>
               );
@@ -55,4 +55,10 @@ export default class MainContent extends Component {
   onRefreshClick = () => {
     this.setState({ customersCount: 7 });
   };
+  getPhoneNumberToRender = (phone) =>
+  {
+    {
+        return (phone == null)? "Phone number is not indicated" : phone
+    }
+  }
 }
