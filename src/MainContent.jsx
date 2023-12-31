@@ -3,12 +3,40 @@ import React, { Component } from "react";
 export default class MainContent extends Component {
   state = {
     pageTitle: "Customers",
-    customersCount: 5,
+    customersCount: 4,
     customers: [
-      { id: 1, name: "Scott", phone: "123-456", address: {city: "London", street: "Abbey Road", building: 1} },
-      { id: 2, name: "Tim", phone: "789-456", address: {city: "Manchester", street: "Abbey Road", building: 1} },
-      { id: 3, name: "Ann", phone: null, address: {city: "Istanbul", street: "Abbey Road", building: 1}  },
-      { id: 4, name: "Rick", phone: "773-356",  address: {city: "Edinburgh", street: "Abbey Road", building: 1}  },
+      { 
+        id: 1, 
+        name: "Scott", 
+        phone: "123-456", 
+        address: {city: "London", street: "Abbey Road", building: 1}, 
+        profilePicture: "https://picsum.photos/id/237/200/300", 
+        VIPstatus: true, 
+    },
+      { 
+        id: 2, 
+        name: "Tim", 
+        phone: "789-456", 
+        address: {city: "Manchester", street: "Abbey Road", building: 1}, 
+        profilePicture: "https://picsum.photos/id/1/367/267", 
+        VIPstatus: false, 
+    },
+      { 
+        id: 3, 
+        name: "Ann", 
+        phone: null, 
+        address: {city: "Istanbul", street: "Abbey Road", building: 1}, 
+        profilePicture: "https://picsum.photos/id/64/367/267", 
+        VIPstatus: true,  
+    },
+      { 
+        id: 4, 
+        name: "John", 
+        phone: "773-356",  
+        address: {city: "Edinburgh", street: "Abbey Road", building: 1}, 
+        profilePicture: "https://picsum.photos/id/177/367/267", 
+        VIPstatus: false, 
+    },
     ],
   };
 
@@ -28,7 +56,9 @@ export default class MainContent extends Component {
           <thead>
             <tr>
               <th>#</th>
+              <th>Profile Photo</th>
               <th>Customer Name</th>
+              <th>Status</th>
               <th>Phone Number</th>
               <th>City</th>
               <th>Street</th>
@@ -36,16 +66,7 @@ export default class MainContent extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.customers.map((cust, index) => {
-              return (
-                <tr key={cust.id}>
-                  <td>{index + 1}</td>
-                  <td>{cust.name}</td>
-                  <td>{this.getPhoneNumberToRender(cust.phone)}</td>
-                  <td>{cust.address.city}</td>
-                </tr>
-              );
-            })}
+            {this.getCustomerRow()}
           </tbody>
         </table>
       </div>
@@ -61,4 +82,31 @@ export default class MainContent extends Component {
         return (phone == null)? "Phone number is not indicated" : phone
     }
   }
+  getPhoneNumberToRender2 = (phone) => {
+    if (phone) return (phone);
+    else {
+        return <div className="bg-warning p-2 text-center">Phone number is not indicated</div>
+    }
+  }
+  getCustomerRow = () => {
+    return (
+      <>
+        {this.state.customers.map((cust, index) => (
+          <tr
+            key={cust.id}
+            style={{ backgroundColor: cust.VIPstatus ? "pink" : "white" }}
+          >
+            <td>{index + 1}</td>
+            <td>
+              <img src={cust.profilePicture} alt="A profile photo" />
+            </td>
+            <td>{cust.name}</td>
+            <td>{cust.VIPstatus ? "VIP" : "Regular"}</td>
+            <td>{this.getPhoneNumberToRender2(cust.phone)}</td>
+            <td>{cust.address.city}</td>
+          </tr>
+        ))}
+      </>
+    );
+  };  
 }
