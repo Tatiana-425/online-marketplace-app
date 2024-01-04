@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import YourAccount from './YourAccount.jsx';
+
 
 class NavBar extends Component {
   render() {
@@ -6,7 +8,7 @@ class NavBar extends Component {
       <React.Fragment>
         <nav className="navbar navbar-expand-lg navbarstyle">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/#">
               Green Monkey
             </a>
             <button
@@ -39,7 +41,7 @@ class NavBar extends Component {
                   </a>
                   <ul className="dropdown-menu">
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <a button className="dropdown-item btn-secondary" onClick={this.method} href="/account" >
                         Your Account
                       </a>
                     </li>

@@ -48,7 +48,7 @@ export default class MainContent extends Component {
           {this.state.customersCount}
         </span>
         <span>
-          <button className="btn btn-info" onClick={this.onRefreshClick}>
+          <button className="btn btn-info" onClick={()=>{this.onRefreshClick();}}>
             Refresh
           </button>
         </span>
@@ -89,8 +89,8 @@ export default class MainContent extends Component {
     }
   }
   getCustomerRow = () => {
-    return (
-      <>
+            return (
+          <>
         {this.state.customers.map((cust, index) => (
           <tr
             key={cust.id}
@@ -98,15 +98,15 @@ export default class MainContent extends Component {
           >
             <td>{index + 1}</td>
             <td>
-              <img src={cust.profilePicture} alt="A profile photo" />
+                <img src={cust.profilePicture} alt="A profile photo" />
             </td>
             <td>{cust.name}</td>
             <td>{cust.VIPstatus ? "VIP" : "Regular"}</td>
             <td>{this.getPhoneNumberToRender2(cust.phone)}</td>
             <td>{cust.address.city}</td>
           </tr>
-        ))}
+))}
       </>
-    );
-  };  
+        );
+      };  
 }

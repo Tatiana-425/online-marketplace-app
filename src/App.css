@@ -48,3 +48,20 @@ background-color: #4f75c3b0 !important;
 .badgestyle {
   background-color:black !important;
 }
+
+.pinkhighlightstyle 
+  {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    color: #d92fb1; 
+    text-shadow: 0 0 10px #d92fb1, 0 0 20px #d92fb1, 0 0 30px #d92fb1;
+  }
+
+
+.whitehighlightstyle {
+background-color: white;
+}
+
+td {
+  background-color: transparent !important;
+}
