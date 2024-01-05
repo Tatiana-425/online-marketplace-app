@@ -1,23 +1,25 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import './NavBar.jsx'
 import NavBar from './NavBar.jsx';
-import MainContent from './MainContent.jsx';
+import CustomersList from './CustomersList.jsx';
 import YourAccount from './YourAccount.jsx';
-
+import ShoppingCart from './ShoppingCart.jsx';
 
 
 function App() {
   return (
     <div className="App">
-      <div>
       <NavBar/>
-      </div>
-      <div>
-        <MainContent/>
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/"  element={<CustomersList/>} />
+          <Route path="/account"  element={<YourAccount/>} />
+          <Route path="/cart" element={<ShoppingCart/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
