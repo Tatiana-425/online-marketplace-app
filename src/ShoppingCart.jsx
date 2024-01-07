@@ -16,13 +16,15 @@ export default class ShoppingCart extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      
+        <div className="container-fluid">
           <h1>Shopping Cart</h1>
-        </div>
+        
+        <div className="row">
         {this.state.products.map((prod)=>{
-            return <Product />
+            return <Product key={prod.id} id={prod.id} productName={prod.productName} price={prod.price}/>
         })}
+        </div>
       </div>
     );
   }
