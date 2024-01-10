@@ -1,12 +1,30 @@
 import React, {Component} from 'react';
 
-export default class Product extends Component 
-{
+export default class Product extends Component {
     state={
         id: this.props.id, 
         productName: this.props.productName, 
-        price: this.props.price
+        price: this.props.price,
+        quantity: this.props.quantity
     };
+
+    handleIncrement = () => {
+        const { onIncrement } = this.props;
+        // Update the local state and call the onIncrement function
+        this.setState((prevState) => ({
+          quantity: prevState.quantity + 1,
+        }), () => onIncrement(this.state.id));
+      };
+    
+      handleDecrement = () => {
+        const { onDecrement } = this.props;
+        // Update the local state and call the onDecrement function
+        if (this.state.quantity > 0) {
+          this.setState((prevState) => ({
+            quantity: prevState.quantity - 1,
+          }), () => onDecrement(this.state.id));
+        }
+      };
 
 render(){
     console.log(this.props);
@@ -20,7 +38,29 @@ render(){
             </div>
             {/* the card body ends here */}
             <div className='card-footer'>
-                {this.props.children}
+                <div className='float-left'>
+                    <span className='badge badgeforquantity m-2'>{this.state.quantity}</span>
+                    <div className='btn-group'>
+                        <button 
+                        className="btn btn-outline-success" 
+                        onClick={this.handleIncrement}
+                        >
+                            +
+                            </button>
+                        <button 
+                        className="btn btn-outline-success" 
+                        onClick={this.handleDecrement}
+                        >
+                            -
+                            </button>
+                    </div>
+                </div>
+                <div className='float-left'>
+                {this.props.children && this.props.children.find(child => child.type === 'button' && child.props.className === 'btn btn-primary m-3 text-left')}
+                </div>
+                <div className='float-right'>
+                {this.props.children && this.props.children.find(child => child.type === 'button' && child.props.className === 'btn btn-secondary m-2 text-right')}
+                </div>
             </div>
         </div>
         </div>

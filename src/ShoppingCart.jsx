@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Product from "./Product.jsx";
 
-
 export default class ShoppingCart extends Component {
   state = {
     products: [
@@ -14,23 +13,55 @@ export default class ShoppingCart extends Component {
     ],
   };
 
+  handleIncrement = (product) => {
+    const maxValue = 30; 
+
+    if (product) {
+      let allProducts = [...this.state.products];
+      let index = allProducts.indexOf(product);
+
+
+      if (index !== -1 && allProducts[index].quantity < maxValue) {
+        allProducts[index].quantity++;
+        // Update the state 
+        this.setState({ products: allProducts });
+      }
+    }
+  };
+
+  handleDecrement = (product) => {
+    let allProducts = [...this.state.products];
+    let index = allProducts.indexOf(product);
+
+    // Check the index before updating the quantity
+    if (index !== -1 && allProducts[index].quantity > 0) {
+      allProducts[index].quantity--;
+      // Update the state 
+      this.setState({ products: allProducts });
+    }
+  };
+
   render() {
     return (
-      
-        <div className="container-fluid">
-          <h1>Shopping Cart</h1>
-        
+      <div className="container-fluid">
+        <h1>Shopping Cart</h1>
         <div className="row">
-        {this.state.products.map((prod)=>{
-            return <Product key={prod.id} id={prod.id} productName={prod.productName} price={prod.price}>
-              <button className="btn btn-primary">Buy Now</button>
-              <button className="btn btn-secondary m-3">Delete</button>
+          {this.state.products.map((prod) => (
+            <Product
+              key={prod.id}
+              id={prod.id}
+              productName={prod.productName}
+              price={prod.price}
+              quantity={prod.quantity}
+              onIncrement={() => this.handleIncrement(prod)}
+              onDecrement={() => this.handleDecrement(prod)}
+            >
+              <button className="btn btn-primary m-3 text-left">Buy Now</button>
+              <button className="btn btn-secondary m-2 text-right">Delete</button>
             </Product>
-        })}
+          ))}
         </div>
       </div>
     );
   }
 }
-
-

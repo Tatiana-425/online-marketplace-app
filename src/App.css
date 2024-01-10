@@ -42,7 +42,7 @@
 }
 
 .navbarstyle {
-background-color: #4f75c3b0 !important;
+background-color: rgb(3, 142, 3) !important;
 }
 
 .badgestyle {
@@ -60,6 +60,10 @@ background-color: #4f75c3b0 !important;
 
 .whitehighlightstyle {
 background-color: white;
+}
+
+.badgeforquantity {
+  background-color: rgb(3, 142, 3) !important;
 }
 
 td {
