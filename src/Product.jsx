@@ -58,9 +58,15 @@ render(){
                 <div className='float-left'>
                 {this.props.children && this.props.children.find(child => child.type === 'button' && child.props.className === 'btn btn-primary m-3 text-left')}
                 </div>
-                <div className='float-right'>
-                {this.props.children && this.props.children.find(child => child.type === 'button' && child.props.className === 'btn btn-secondary m-2 text-right')}
-                </div>
+                <button
+                 className="btn btn-secondary m-2 text-right delete-button"
+                 onClick={() => this.props.onDelete(this.state.id)}
+                >
+  <i className="fa fa-times"></i>
+  <span>Delete</span>
+</button>
+
+
             </div>
         </div>
         </div>

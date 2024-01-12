@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import YourAccount from './YourAccount.jsx';
-
+import "font-awesome/css/font-awesome.css";
 
 class NavBar extends Component {
   render() {
@@ -72,7 +72,8 @@ class NavBar extends Component {
                   aria-label="Search"
                 />
                 <button className="btn btn-outline-success" type="submit">
-                  Search
+                <i className="fas fa-search"></i>
+                    Search
                 </button>
               </form>
             </div>

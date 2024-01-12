@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Product from "./Product.jsx";
+import "font-awesome/css/font-awesome.css";
 
 export default class ShoppingCart extends Component {
   state = {
@@ -55,13 +56,34 @@ export default class ShoppingCart extends Component {
               quantity={prod.quantity}
               onIncrement={() => this.handleIncrement(prod)}
               onDecrement={() => this.handleDecrement(prod)}
+              onDelete={this.handleDelete}
             >
               <button className="btn btn-primary m-3 text-left">Buy Now</button>
-              <button className="btn btn-secondary m-2 text-right">Delete</button>
+              <button className="btn btn-secondary m-2 text-right delete-button">
+                <i className="fa fa-times">
+                  <span onClick={()=>{this.handleDelete(this.state.prod)}}>
+                   Delete
+                   </span>
+                   </i>
+                   </button>
             </Product>
           ))}
         </div>
       </div>
     );
   }
+  // executes when user clicks on delete button
+
+  handleDelete = (productId) => {
+    let allProducts = [...this.state.products];
+    let index = allProducts.findIndex((product) => product.id === productId);
+  
+    // delete a product based on index
+    if (index !== -1) {
+      allProducts.splice(index, 1);
+      // Update the state
+      this.setState({ products: allProducts });
+    }
+  };
+  
 }

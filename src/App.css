@@ -69,3 +69,7 @@ background-color: white;
 td {
   background-color: transparent !important;
 }
+
+.delete-button {
+  cursor: pointer;
+}

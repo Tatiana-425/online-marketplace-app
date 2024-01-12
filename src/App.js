@@ -1,12 +1,12 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import './NavBar.jsx'
 import NavBar from './NavBar.jsx';
 import CustomersList from './CustomersList.jsx';
 import YourAccount from './YourAccount.jsx';
 import ShoppingCart from './ShoppingCart.jsx';
+import "font-awesome/css/font-awesome.css";
 
 
 function App() {
