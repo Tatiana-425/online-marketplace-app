@@ -15,7 +15,7 @@ export default class ShoppingCart extends Component {
   };
 
   handleIncrement = (product) => {
-    const maxValue = 30; 
+    const maxValue = 10; 
 
     if (product) {
       let allProducts = [...this.state.products];
@@ -57,12 +57,13 @@ export default class ShoppingCart extends Component {
               onIncrement={() => this.handleIncrement(prod)}
               onDecrement={() => this.handleDecrement(prod)}
               onDelete={this.handleDelete}
+              maxValue={10}
             >
               <button className="btn btn-primary m-3 text-left">Buy Now</button>
               <button className="btn btn-secondary m-2 text-right delete-button">
                 <i className="fa fa-times">
                   <span onClick={()=>{this.handleDelete(this.state.prod)}}>
-                   Delete
+                      Delete
                    </span>
                    </i>
                    </button>
@@ -77,12 +78,16 @@ export default class ShoppingCart extends Component {
   handleDelete = (productId) => {
     let allProducts = [...this.state.products];
     let index = allProducts.findIndex((product) => product.id === productId);
+    if (window.confirm("Are you sure you want to delete?")){
+
+    
   
     // delete a product based on index
     if (index !== -1) {
       allProducts.splice(index, 1);
       // Update the state
       this.setState({ products: allProducts });
+    }
     }
   };
   

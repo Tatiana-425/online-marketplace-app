@@ -5,15 +5,19 @@ export default class Product extends Component {
         id: this.props.id, 
         productName: this.props.productName, 
         price: this.props.price,
-        quantity: this.props.quantity
+        quantity: this.props.quantity,
+        maxValue: this.props.maxValue
     };
 
     handleIncrement = () => {
         const { onIncrement } = this.props;
         // Update the local state and call the onIncrement function
+        if (this.state.quantity < this.props.maxValue) {
         this.setState((prevState) => ({
           quantity: prevState.quantity + 1,
         }), () => onIncrement(this.state.id));
+      }
+    
       };
     
       handleDecrement = () => {
