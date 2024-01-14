@@ -6,6 +6,7 @@ import NavBar from './NavBar.jsx';
 import CustomersList from './CustomersList.jsx';
 import YourAccount from './YourAccount.jsx';
 import ShoppingCart from './ShoppingCart.jsx';
+import Login from './Login.jsx';
 import "font-awesome/css/font-awesome.css";
 
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/"  element={<CustomersList/>} />
           <Route path="/account"  element={<YourAccount/>} />
           <Route path="/cart" element={<ShoppingCart/>}/>
+          <Route path="/login" element={<Login/>} />
         </Routes>
       </Router>
     </div>

@@ -75,6 +75,12 @@ class NavBar extends Component {
                 <i className="fas fa-search"></i>
                     Search
                 </button>
+                <span style={{ marginLeft: '10px' }}></span>
+                <div className="nav-item">
+                  <a className="nav-link" href="/login">
+                    Login
+                  </a>
+                </div>
               </form>
             </div>
           </div>
