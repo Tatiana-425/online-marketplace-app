@@ -22,7 +22,8 @@ render (){
                 <input 
                 type="email" 
                 className="form-control" 
-                value={this.state.email}>
+                value={this.state.email}
+                onChange={(event)=> {this.setState({email: event.target.value})}}>
                 </input>
             </div>
             {/*Email ends here*/}
@@ -32,11 +33,20 @@ render (){
                 <input
                  type="password" 
                  className="form-control"
-                 value={this.state.password}>
+                 value={this.state.password}
+                 onChange={(event)=>{this.setState({password:event.target.value})}}>
                  </input>
             </div>
             {/*Password ends here*/}
+            <div>
+                <button className="btn btn-primary m-3" onClick={this.onLoginClick}>Log In</button>
+            </div>
         </div>;
       
 }
+}
+// end of render method
+// executes when user clicks Log In button
+onLoginClick = () =>{
+    
 }
