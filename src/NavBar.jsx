@@ -71,7 +71,7 @@ class NavBar extends Component {
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button className="btn btn-outline-success" type="submit">
+                <button className="btn btn-outline-success SearchButton" type="submit">
                 <i className="fas fa-search"></i>
                     Search
                 </button>
@@ -79,6 +79,12 @@ class NavBar extends Component {
                 <div className="nav-item">
                   <a className="nav-link" href="/login">
                     Login
+                  </a>
+                </div>
+                <span style={{ marginLeft: '10px' }}></span>
+                <div className="nav-item">
+                  <a className="nav-link" href="/login">
+                    Customers
                   </a>
                 </div>
               </form>

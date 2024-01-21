@@ -7,6 +7,8 @@ import CustomersList from './CustomersList.jsx';
 import YourAccount from './YourAccount.jsx';
 import ShoppingCart from './ShoppingCart.jsx';
 import Login from './Login.jsx';
+import MainPage from './MainPage.jsx';
+import ForHome from './ForHome.jsx';
 import "font-awesome/css/font-awesome.css";
 
 
@@ -16,10 +18,12 @@ function App() {
       <NavBar/>
       <Router>
         <Routes>
-          <Route path="/"  element={<CustomersList/>} />
+          <Route path="/"  element={<MainPage/>} />
           <Route path="/account"  element={<YourAccount/>} />
           <Route path="/cart" element={<ShoppingCart/>}/>
           <Route path="/login" element={<Login/>} />
+          <Route path="/customerslist" element={<CustomersList/>} />
+          <Route path="/for-home" element={<ForHome/>} />
         </Routes>
       </Router>
     </div>
@@ -27,3 +31,4 @@ function App() {
 }
 
 export default App;
+
