@@ -58,6 +58,7 @@ export default class Product extends Component {
                 </button>
               </div>
             </div>
+            <button className="btn btn-primary m-3 text-left">Buy Now</button>
             <button
               className="btn btn-secondary m-2 text-right delete-button"
               onClick={() => this.props.onDelete(this.state.id)}
