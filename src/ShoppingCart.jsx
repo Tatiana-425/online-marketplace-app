@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Product from "./Product.jsx";
-import "font-awesome/css/font-awesome.css";
+import Product from "./Product";
 
 export default class ShoppingCart extends Component {
   state = {
@@ -15,12 +14,11 @@ export default class ShoppingCart extends Component {
   };
 
   handleIncrement = (product) => {
-    const maxValue = 10; 
+    const maxValue = 10;
 
     if (product) {
       let allProducts = [...this.state.products];
       let index = allProducts.indexOf(product);
-
 
       if (index !== -1 && allProducts[index].quantity < maxValue) {
         allProducts[index].quantity++;
@@ -42,6 +40,19 @@ export default class ShoppingCart extends Component {
     }
   };
 
+  handleDelete = (productId) => {
+    let allProducts = [...this.state.products];
+    let index = allProducts.findIndex((product) => product.id === productId);
+    if (window.confirm("Are you sure you want to delete?")) {
+      // delete a product based on index
+      if (index !== -1) {
+        allProducts.splice(index, 1);
+        // Update the state
+        this.setState({ products: allProducts });
+      }
+    }
+  };
+
   render() {
     return (
       <div className="container-fluid">
@@ -56,39 +67,21 @@ export default class ShoppingCart extends Component {
               quantity={prod.quantity}
               onIncrement={() => this.handleIncrement(prod)}
               onDecrement={() => this.handleDecrement(prod)}
-              onDelete={this.handleDelete}
+              onDelete={() => this.handleDelete(prod.id)}
               maxValue={10}
             >
               <button className="btn btn-primary m-3 text-left">Buy Now</button>
-              <button className="btn btn-secondary m-2 text-right delete-button">
-                <i className="fa fa-times">
-                  <span onClick={()=>{this.handleDelete(this.state.prod)}}>
-                      Delete
-                   </span>
-                   </i>
-                   </button>
+              <button
+                className="btn btn-secondary m-2 text-right delete-button"
+                onClick={() => this.handleDelete(prod.id)}
+              >
+                <i className="fa fa-times"></i>
+                <span>Delete</span>
+              </button>
             </Product>
           ))}
         </div>
       </div>
     );
   }
-  // executes when user clicks on delete button
-
-  handleDelete = (productId) => {
-    let allProducts = [...this.state.products];
-    let index = allProducts.findIndex((product) => product.id === productId);
-    if (window.confirm("Are you sure you want to delete?")){
-
-    
-  
-    // delete a product based on index
-    if (index !== -1) {
-      allProducts.splice(index, 1);
-      // Update the state
-      this.setState({ products: allProducts });
-    }
-    }
-  };
-  
 }

@@ -9,6 +9,7 @@ import ShoppingCart from './ShoppingCart.jsx';
 import Login from './Login.jsx';
 import MainPage from './MainPage.jsx';
 import ForHome from './ForHome.jsx';
+import ProductforMainPart from './ProductforMainPart.jsx';
 import "font-awesome/css/font-awesome.css";
 
 

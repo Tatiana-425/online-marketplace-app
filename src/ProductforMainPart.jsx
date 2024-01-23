@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Product extends Component {
+export default class ProductforMainPart extends Component {
   state = {
     id: this.props.id,
     productName: this.props.productName,
@@ -29,6 +29,13 @@ export default class Product extends Component {
     }
   };
 
+  handleAddToCart = () => {
+    const { onAddToCart } = this.props;
+    if (onAddToCart) {
+      onAddToCart();
+    }
+  };
+
   render() {
     console.log(this.props);
     return (
@@ -41,29 +48,11 @@ export default class Product extends Component {
           </div>
           {/* the card body ends here */}
           <div className='card-footer'>
-            <div className='float-left'>
-              <span className='badge badgeforquantity m-2'>{this.state.quantity}</span>
-              <div className='btn-group'>
-                <button
-                  className="btn btn-outline-success"
-                  onClick={this.handleIncrement}
-                >
-                  +
-                </button>
-                <button
-                  className="btn btn-outline-success"
-                  onClick={this.handleDecrement}
-                >
-                  -
-                </button>
-              </div>
-            </div>
             <button
-              className="btn btn-secondary m-2 text-right delete-button"
-              onClick={() => this.props.onDelete(this.state.id)}
+              className="btn btn-primary m-2 text-center"
+              onClick={this.handleAddToCart}
             >
-              <i className="fa fa-times"></i>
-              <span>Delete</span>
+              <span>Add to the <br /> shopping cart</span>
             </button>
           </div>
         </div>
