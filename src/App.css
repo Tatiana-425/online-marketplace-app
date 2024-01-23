@@ -167,3 +167,14 @@ td {
   display: grid;
   gap: 15px;
 }
+
+.product-image {
+  max-width: 300px;
+  margin: 2px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  display: grid;
+  gap: 1px;
+  
+}

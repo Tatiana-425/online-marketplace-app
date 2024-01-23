@@ -5,12 +5,12 @@ import "font-awesome/css/font-awesome.css";
 export default class ForHome extends Component {
   state = {
     products: [
-      { id: 1, productName: "item 1", price: 700, quantity: 0 },
-      { id: 2, productName: "item 2", price: 500, quantity: 0 },
-      { id: 3, productName: "item 3", price: 150, quantity: 0 },
-      { id: 4, productName: "item 4", price: 20, quantity: 0 },
-      { id: 5, productName: "item 5", price: 7, quantity: 0 },
-      { id: 6, productName: "item 6", price: 70, quantity: 0 },
+      { id: 1, productName: "item 1", price: 700, quantity: 0, image: "https://media.istockphoto.com/id/1474579509/photo/contemporary-bed-isolated-on-white-background-front-view-include-clipping-path-close-up.jpg?s=2048x2048&w=is&k=20&c=zotOBU0ItuJRbTLy3TfFypgEt6pNmKfIXlW5xD5WMpU=" },
+      { id: 2, productName: "item 2", price: 500, quantity: 0, image: "URL_FOR_ITEM_2_IMAGE" },
+      { id: 3, productName: "item 3", price: 150, quantity: 0, image: "URL_FOR_ITEM_3_IMAGE" },
+      { id: 4, productName: "item 4", price: 20, quantity: 0, image: "URL_FOR_ITEM_4_IMAGE" },
+      { id: 5, productName: "item 5", price: 7, quantity: 0, image: "URL_FOR_ITEM_5_IMAGE" },
+      { id: 6, productName: "item 6", price: 70, quantity: 0, image: "URL_FOR_ITEM_6_IMAGE" },
     ],
     shoppingCart: [], // Add a shopping cart state
   };
@@ -64,6 +64,7 @@ export default class ForHome extends Component {
               productName={prod.productName}
               price={prod.price}
               quantity={prod.quantity}
+              image={prod.image} // Pass the image URL as a prop
               onIncrement={() => this.handleIncrement(prod)}
               onDecrement={() => this.handleDecrement(prod)}
               onAddToCart={() => this.handleAddToCart(prod.id)} // Added handler
@@ -74,7 +75,6 @@ export default class ForHome extends Component {
                   Add to Shopping Cart
                 </span>
               </button>
-    
             </ProductforMainPart>
           ))}
         </div>
@@ -95,3 +95,4 @@ export default class ForHome extends Component {
     }
   };
 }
+

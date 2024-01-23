@@ -45,6 +45,12 @@ export default class ProductforMainPart extends Component {
             <div className="text-muted"> #{this.state.id}</div>
             <h5 className="pt-5 border-top">{this.state.productName}</h5>
             <div>${this.state.price}</div>
+            <img
+              src={this.props.image}
+              alt={this.state.productName}
+              className="product-image"
+            />
+          </div>
           </div>
           {/* the card body ends here */}
           <div className='card-footer'>
@@ -56,7 +62,7 @@ export default class ProductforMainPart extends Component {
             </button>
           </div>
         </div>
-      </div>
+    
     );
   }
 }

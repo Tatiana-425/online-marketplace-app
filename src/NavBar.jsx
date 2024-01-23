@@ -85,7 +85,7 @@ class NavBar extends Component {
                 </div>
                 <span style={{ marginLeft: '10px' }}></span>
                 <div className="nav-item">
-                  <a className="nav-link" href="/login">
+                  <a className="nav-link" href="/customerslist">
                     Customers
                   </a>
                 </div>
