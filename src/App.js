@@ -9,6 +9,7 @@ import ShoppingCart from './ShoppingCart.jsx';
 import Login from './Login.jsx';
 import MainPage from './MainPage.jsx';
 import ForHome from './ForHome.jsx';
+import Registration from './Registration.jsx';
 import ProductforMainPart from './ProductforMainPart.jsx';
 import "font-awesome/css/font-awesome.css";
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/customerslist" element={<CustomersList/>} />
           <Route path="/for-home" element={<ForHome/>} />
+          <Route path="/register" element={<Registration/>} />
         </Routes>
       </Router>
     </div>

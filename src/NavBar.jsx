@@ -61,7 +61,9 @@ class NavBar extends Component {
                   </ul>
                 </li>
                 <li className="nav-item">
-                
+                <a className="nav-link" href="/Register">
+                    Register
+                  </a>
                 </li>
               </ul>
               <form className="d-flex" role="search">

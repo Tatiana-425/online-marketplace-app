@@ -157,3 +157,13 @@ td {
   align-items: center;
   display: flex;
 }
+
+.registration{
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: grid;
+  gap: 15px;
+}

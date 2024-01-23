@@ -74,6 +74,7 @@ export default class ForHome extends Component {
                   Add to Shopping Cart
                 </span>
               </button>
+    
             </ProductforMainPart>
           ))}
         </div>
